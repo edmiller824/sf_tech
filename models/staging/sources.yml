@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ed_analytics
+    schema: raw
+    tables:
+      - name: service_requests
+        description: "Raw service requests loaded from CSV"
