@@ -1,4 +1,1 @@
-select 
-current_timestamp() as run_time
-, 'dbt connected' as message_text
-;
+select current_timestamp() as run_time, 'dbt connected' as message_text
