@@ -35,14 +35,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
-# models:
-#   ed_analytics:
-#     +schema: dev
-#     staging:
-#       +materialized: view
-
 models:
   ed_analytics:
-    +schema: "{{ target.schema | replace('dbt_emiller', 'dev') }}"
+    +schema: dev
     staging:
       +materialized: view
+
+# models:
+#   ed_analytics:
+#     +schema: "{{ target.schema | replace('dbt_emiller', 'dev') }}"
+#     staging:
+#       +materialized: view
