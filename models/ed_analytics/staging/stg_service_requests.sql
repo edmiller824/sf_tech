@@ -11,4 +11,4 @@ select
     , case  when to_timestamp(closed_date) is not null then TRUE else FALSE end as closed_flag
     , current_timestamp() as load_ts
 from {{ source('raw', 'service_requests') }}
-where id is not null
+where id is not null;
