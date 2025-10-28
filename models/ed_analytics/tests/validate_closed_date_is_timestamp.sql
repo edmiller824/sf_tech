@@ -2,4 +2,4 @@
 SELECT *
 FROM {{ ref('stg_service_requests') }}
 WHERE TRY_TO_TIMESTAMP(closed_date) IS NULL
-  AND closed_date IS NOT NULL;
+  AND closed_date IS NOT NULL
