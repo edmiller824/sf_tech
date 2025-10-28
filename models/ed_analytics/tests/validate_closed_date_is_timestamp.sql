@@ -1,5 +1,5 @@
 -- Fails if any closed_date value is not a valid timestamp
 SELECT *
 FROM {{ ref('stg_service_requests') }}
-WHERE TO_TIMESTAMP(closed_date) IS NULL
+WHERE TRY_TO_TIMESTAMP(closed_date) IS NULL
   AND closed_date IS NOT NULL
