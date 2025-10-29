@@ -32,3 +32,15 @@ A 6-week project using Snowflake + dbt + BI tools to simulate a real-world analy
 - Add `schema.yml` tests (e.g., `not_null`, `unique`)
 - Create `mart_open_requests` model for simple reporting
 - Generate and explore dbt documentation and lineage graph
+
+
+### ✅ Custom Timestamp Validation Tests
+
+To ensure that `opened_date` and `closed_date` are valid timestamps:
+
+**Test SQL structure:**
+```sql
+SELECT *
+FROM {{ ref('stg_service_requests') }}
+WHERE TRY_TO_TIMESTAMP(field::STRING) IS NULL
+  AND field IS NOT NULL
