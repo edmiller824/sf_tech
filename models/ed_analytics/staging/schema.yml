@@ -27,7 +27,7 @@ models:
           - accepted_values:
               values: [true, false]
 
-      - name: duration_days
+      - name: duration_days_open
         description: "Days between opened_date and closed_date (or between opened_date and NOW if request is not closed)"
         tests:
           - dbt_expectations.expect_column_values_to_be_between:
