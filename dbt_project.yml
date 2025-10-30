@@ -36,8 +36,6 @@ models:
   ed_analytics:
     +schema: dev
     +materialized: view
-# models:
-#   ed_analytics:
-#     +schema: dev
-#     staging:
-#       +materialized: view
+# if you want to add a table materialization:
+    # marts:
+    #   +materialized: table
