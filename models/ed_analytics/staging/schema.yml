@@ -23,9 +23,18 @@ models:
 
       - name: closed_flag
         description: "Boolean flag; true if request is closed"
+        tests:
+          - accepted_values:
+              values: [true, false]
 
       - name: duration_days
         description: "Days between opened_date and closed_date (or between opened_date and NOW if request is not closed)"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1000
+          # - dbt_utils.expression_is_true:
+          #     expression: "duration_days >= 0"
 
       - name: request_title
         description: "Name or title of the service request"
@@ -38,3 +47,5 @@ models:
 
       - name: load_ts
         description: "Timestamp when model was run"
+        tests:
+          - not_null
